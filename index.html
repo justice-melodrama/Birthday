@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Tracker</title>
+</head>
+<body>
+    <h1>Total Amount Tracker</h1>
+    <div id="total-amount">Loading...</div>
+
+    <!-- JavaScript included directly in the HTML file -->
+    <script>
+        const apiKey = 'AIzaSyAT6WFQzgZPmVtUTEEcriux0AfZCycm20A'; // Replace with your actual API key
+        const sheetId = '2PACX-1vTkc43f7pkL6lkcyaix9JFkgOVVzuyqS90QltqlHZn3OjhRMnDGzp-NbdWGDxBRTa21IkZ4Df7M4xji'; // Replace with your actual Google Sheet ID
+        const range = 'Sheet1!A:A'; // Adjust the range to match your data
+
+        async function fetchData() {
+            try {
+                const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`);
+                const data = await response.json();
+                const values = data.values;
+
+                let total = 0;
+                for (let i = 1; i < values.length; i++) { // Assuming the first row is headers
+                    total += parseFloat(values[i][0]) || 0;
+                }
+
+                document.getElementById('total-amount').innerText = `Total Amount: ${total}`;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('total-amount').innerText = 'Error loading data';
+            }
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
