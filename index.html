@@ -28,7 +28,7 @@
                     total += parseFloat(values[i][0]) || 0;
                 }
 
-                document.getElementById('total-amount').innerText = `Total Amount: ${total}`;
+                document.getElementById('total-amount').innerText = `Total Amount: € ${total}`;
             } catch (error) {
                 console.error('Error fetching data:', error);
                 document.getElementById('total-amount').innerText = 'Error loading data';
