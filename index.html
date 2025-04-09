@@ -11,16 +11,23 @@
     <meta http-equiv="Expires" content="0" />
 </head>
 <body>
-    <h1>Birthday Fundraise</h1>
+    <h1>Birthday Fundraiser</h1>
     <p>Family, friends, good people of the world, </p>
     <p>For my 36th birthday, I’m raising funds for ELSC to support their incredible work defending the rights of Palestine activists all across Europe. 
         Instead of gifts, please consider donating to my fundraiser to help make a difference! I will match your donations!</p>
-    <a href="https://elsc.support/" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#007BFF; color:white; text-decoration:none; border-radius:5px;">
-    Visit ELSC Website
-    </a>
     
-    <div id="total-amount">Loading...</div>
-
+    
+<button id="total-amount" style="
+    background-color: #800080;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: default;
+">
+    Loading...
+</button>
     <!-- JavaScript included directly in the HTML file -->
     <script>
         const apiKey = 'AIzaSyAT6WFQzgZPmVtUTEEcriux0AfZCycm20A'; // Replace with your actual API key
@@ -47,5 +54,9 @@
 
         fetchData();
     </script>
+
+    <a href="https://elsc.support/" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#007BFF; color:white; text-decoration:none; border-radius:5px;">
+    Visit ELSC Website
+    </a>
 </body>
 </html>
